@@ -23,10 +23,6 @@ y=y_next;
 	
 }
 
-
-
-
-
 }
 
 int main() 
