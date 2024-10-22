@@ -22,9 +22,7 @@ break;}
 y=y_next;
 	
 }
-
 }
-
 int main() 
 {double x0=0.0000000;
 double y0;
