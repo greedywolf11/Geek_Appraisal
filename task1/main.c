@@ -11,28 +11,30 @@ void euler(double x0,double y0,double h,double error,double x_end,double *final_
     double y=y0;
     double y_next;
     int steady_state_found=0;
+    double steady_state_value=0.0;
     printf("x\t\ty\n");
 while (x<x_end)
 {
 	y_next=y+h*f(y);
-    x=x+h;
-    printf("%.6f\t%.6f\n",x,y_next);
     if(fabs(y_next-y)<error)
     {  
-         steady_state_found=1;
-         *final_y=y_next;
+        if(!steady_state_found)
+       {
+        steady_state_found=1;
+        steady_state_value=y_next;
+        }
          }
+    x=x+h;
     y=y_next;
+    printf("%.6f\t%.6f\n",x,y);
     }
     if (steady_state_found)
     {
-        printf("在x范围内检测到定态值:y=%.6f\n",*final_y);
+        *final_y=steady_state_value;
 	}
     else 
     {
         *final_y=y;
-        printf("在x范围内未检测到定态值,取最后一个y值作为定态值:%lf\n",*final_y);
-
     }
     }
 
@@ -53,6 +55,7 @@ int main()
     x_end=25.0*a;
 
     euler(x0,y0,h,error,x_end,&final_y);
+    printf("最终的定态值或近似定态值为:",final_y);
 	return 0;
 }
 
