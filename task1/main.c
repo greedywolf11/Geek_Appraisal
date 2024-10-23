@@ -24,9 +24,10 @@ while (x<x_end)
         steady_state_value=y_next;
         }
          }
+    printf("%.6f\t%.6f\n",x,y_next);
     x=x+h;
     y=y_next;
-    printf("%.6f\t%.6f\n",x,y);
+    
     }
     if (steady_state_found)
     {
