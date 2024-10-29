@@ -56,7 +56,7 @@ int main()
     x_end=25.0*a;
 
     euler(x0,y0,h,error,x_end,&final_y);
-    printf("最终的定态值或近似定态值为:",final_y);
+    printf("最终的定态值或近似定态值为:lf",final_y);
 	return 0;
 }
 
